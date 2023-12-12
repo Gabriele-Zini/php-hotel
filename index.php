@@ -49,19 +49,38 @@ $hotels = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>php hotel</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
 
-    <?php foreach ($hotels as $hotel) { ?>
-        <div>
-            <h1><?php echo $hotel['name'] ?></h1>
-            <h4><?php echo $hotel['description'] ?>:</h4>
-            <p><span>parking</span> : <?php echo $hotel['parking'] ?  "sì" : "no" ?></p>
-            <p><span>voto: </span> <?php echo $hotel['vote'] ?></p>
-            <p><span>distanza dal centro:</span> <?php echo $hotel['distance_to_center'] ?> km</p>
-        </div>
-    <?php } ?>
+    <div class="d-flex justify-content-center pt-5">
+        <table class="table w-50 border ">
+            <thead>
+                <tr class="table-info">
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Parcheggio</th>
+                    <th>Voto</th>
+                    <th>Distanza dal centro</th>
+                </tr>
+            </thead>
+
+            <?php $counter = 1;
+            foreach ($hotels as $hotel) { ?>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold"><?php echo $counter?></td>
+                        <td class="fw-bold"><?php echo $hotel['name'] ?></td>
+                        <td> <?php echo $hotel['parking'] ?  "sì" : "no" ?></td>
+                        <td><?php echo $hotel['vote'] ?></td>
+                        <td><?php echo $hotel['distance_to_center'] ?> km</td>
+                    </tr>
+                </tbody>
+            <?php $counter++; } ?>
+        </table>
+    </div>
+
 </body>
 
 </html>
